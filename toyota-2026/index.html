@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>הצעת מחיר — nCode × טויוטה ישראל</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: { sans: ['Rubik', 'system-ui', 'sans-serif'] },
+        colors: {
+          ink: {
+            950: '#0A0F1C',
+            900: '#0F172A',
+            800: '#1E293B',
+            700: '#334155',
+          },
+          accent: {
+            DEFAULT: '#3B82F6',
+            light: '#60A5FA',
+            dark: '#2563EB',
+          },
+        },
+        boxShadow: {
+          card: '0 1px 2px rgba(15, 23, 42, 0.04), 0 4px 16px rgba(15, 23, 42, 0.06)',
+          cardHover: '0 2px 4px rgba(15, 23, 42, 0.06), 0 12px 32px rgba(15, 23, 42, 0.08)',
+          premium: '0 8px 24px rgba(15, 23, 42, 0.18), 0 24px 64px rgba(15, 23, 42, 0.24)',
+        },
+      }
+    }
+  }
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Rubik', system-ui, sans-serif;
+    font-feature-settings: "kern" 1;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    color: #0F172A;
+    background: #FAFAFA;
+  }
+  .text-balance { text-wrap: balance; }
+  .text-pretty  { text-wrap: pretty; }
+
+  .hero-grid {
+    background-image:
+      linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 40%, transparent 100%);
+  }
+  .hero-glow {
+    background: radial-gradient(ellipse 60% 50% at 70% 20%, rgba(59,130,246,0.18), transparent 60%),
+                radial-gradient(ellipse 50% 40% at 20% 80%, rgba(59,130,246,0.10), transparent 60%);
+  }
+
+  .hairline { border: 1px solid #E5E7EB; }
+  .hairline-b { border-bottom: 1px solid #E5E7EB; }
+
+  .step-num {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+  }
+
+  .premium-card {
+    background:
+      radial-gradient(ellipse 100% 60% at 100% 0%, rgba(59,130,246,0.18), transparent 55%),
+      linear-gradient(180deg, #0F172A 0%, #0A0F1C 100%);
+  }
+
+  @page { size: A4; margin: 14mm; }
+  @media print {
+    html, body { background: white !important; }
+    .no-print { display: none !important; }
+    section { break-inside: avoid; page-break-inside: avoid; }
+    .premium-card { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .hero { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .shadow-card, .shadow-cardHover, .shadow-premium { box-shadow: none !important; }
+    .hairline { border-color: #D1D5DB !important; }
+    a { color: inherit; text-decoration: none; }
+  }
+
+  .logo-mark {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%);
+    display: inline-flex; align-items: center; justify-content: center;
+    color: white; font-weight: 700; font-size: 15px; letter-spacing: -0.02em;
+  }
+
+  .rule {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #E5E7EB 20%, #E5E7EB 80%, transparent);
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="no-print sticky top-0 z-40 backdrop-blur bg-white/80 hairline-b">
+  <div class="max-w-5xl mx-auto px-6 lg:px-8 h-16 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <span class="logo-mark">n</span>
+      <div class="leading-tight">
+        <div class="text-sm font-semibold text-ink-900">nCode</div>
+        <div class="text-xs text-ink-700">ייעוץ והדרכות AI</div>
+      </div>
+    </div>
+    <div class="flex items-center gap-2">
+      <button onclick="window.print()" class="text-sm font-medium text-ink-900 hover:text-accent px-4 py-2 rounded-lg transition-colors">
+        הדפסה / PDF
+      </button>
+      <a href="mailto:ben@benla.co.il" class="text-sm font-medium bg-ink-900 text-white px-4 py-2 rounded-lg hover:bg-ink-800 transition-colors">
+        יצירת קשר
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero relative overflow-hidden bg-ink-900 text-white">
+  <div class="absolute inset-0 hero-grid"></div>
+  <div class="absolute inset-0 hero-glow"></div>
+
+  <div class="relative max-w-5xl mx-auto px-6 lg:px-8 pt-20 pb-24 lg:pt-28 lg:pb-32">
+
+    <div class="flex items-center gap-3 mb-10 text-xs font-medium tracking-wide uppercase text-white/60">
+      <span>הצעת מחיר</span>
+      <span class="w-1 h-1 rounded-full bg-white/30"></span>
+      <span>אפריל 2026</span>
+      <span class="w-1 h-1 rounded-full bg-white/30"></span>
+      <span>חסוי</span>
+    </div>
+
+    <div class="text-accent-light text-sm font-medium mb-4">
+      עבור טויוטה ישראל
+    </div>
+
+    <h1 class="text-balance text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.1] tracking-tight mb-6">
+      הדרכת AI לצוות השיווק
+    </h1>
+
+    <p class="text-pretty text-lg lg:text-xl text-white/70 max-w-2xl leading-relaxed mb-12">
+      חצי יום מעשי שמשנה את אופן העבודה של צוות השיווק — מיצירת תוכן, דרך ניתוח קמפיינים, ועד בניית כלים פנימיים. ביום הראשון לאחריו, הצוות כבר עובד אחרת.
+    </p>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 gap-px bg-white/10 hairline border-white/10 rounded-xl overflow-hidden max-w-2xl">
+      <div class="bg-ink-900 px-5 py-4">
+        <div class="text-xs text-white/50 mb-1">היקף</div>
+        <div class="text-base font-medium">10 משתתפים</div>
+      </div>
+      <div class="bg-ink-900 px-5 py-4">
+        <div class="text-xs text-white/50 mb-1">משך</div>
+        <div class="text-base font-medium">חצי יום</div>
+      </div>
+      <div class="bg-ink-900 px-5 py-4 col-span-2 sm:col-span-1">
+        <div class="text-xs text-white/50 mb-1">תוקף ההצעה</div>
+        <div class="text-base font-medium">30 יום</div>
+      </div>
+    </div>
+
+    <div class="mt-14 flex items-center gap-3 text-sm text-white/60">
+      <span>מאת</span>
+      <span class="text-white font-medium">בן לביא</span>
+      <span class="text-white/30">·</span>
+      <span>מייסד שותף, nCode</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="py-20 lg:py-28">
+  <div class="max-w-5xl mx-auto px-6 lg:px-8">
+
+    <div class="max-w-2xl mb-14">
+      <div class="text-xs font-semibold tracking-widest uppercase text-accent mb-4">01 · הבעיה</div>
+      <h2 class="text-balance text-3xl lg:text-4xl font-semibold tracking-tight text-ink-900 mb-4">
+        למה עכשיו
+      </h2>
+      <p class="text-pretty text-lg text-ink-700 leading-relaxed">
+        מחלקות שיווק שמאמצות AI עכשיו בונות יתרון תחרותי שקשה לסגור. שלוש סיבות שהופכות את הרגע הזה לקריטי.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+
+      <article>
+        <div class="text-5xl font-light text-ink-900/15 step-num mb-4">01</div>
+        <h3 class="text-lg font-semibold text-ink-900 mb-3 leading-snug">
+          הצוות כבר משתמש — בלי מתודולוגיה
+        </h3>
+        <p class="text-ink-700 leading-relaxed">
+          כלי AI נמצאים בשימוש יומיומי, אבל בלי הדרכה מסודרת התוצאות לא עקביות והזמן שמושקע גדל במקום לקטון.
+        </p>
+      </article>
+
+      <article>
+        <div class="text-5xl font-light text-ink-900/15 step-num mb-4">02</div>
+        <h3 class="text-lg font-semibold text-ink-900 mb-3 leading-snug">
+          תוכן שלוקח שבוע — יכול לקחת יום
+        </h3>
+        <p class="text-ink-700 leading-relaxed">
+          קמפיינים, קופי, אנליזה — תהליכים שצוותי שיווק מובילים עושים ב-AI ב-20% מהזמן. הפער הזה מצטבר.
+        </p>
+      </article>
+
+      <article>
+        <div class="text-5xl font-light text-ink-900/15 step-num mb-4">03</div>
+        <h3 class="text-lg font-semibold text-ink-900 mb-3 leading-snug">
+          חלון ההזדמנויות מצטמצם
+        </h3>
+        <p class="text-ink-700 leading-relaxed">
+          מותגים שהשקיעו בהכשרת הצוותים שלהם לפני המתחרים יוצרים פער שקשה לסגור. זה עוד לא מאוחר — אבל הוא מתקצר.
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<div class="rule max-w-5xl mx-auto"></div>
+
+<!-- DELIVERABLES -->
+<section class="py-20 lg:py-28">
+  <div class="max-w-5xl mx-auto px-6 lg:px-8">
+
+    <div class="max-w-2xl mb-14">
+      <div class="text-xs font-semibold tracking-widest uppercase text-accent mb-4">02 · התוצרים</div>
+      <h2 class="text-balance text-3xl lg:text-4xl font-semibold tracking-tight text-ink-900 mb-4">
+        מה תקבלו
+      </h2>
+      <p class="text-pretty text-lg text-ink-700 leading-relaxed">
+        תוצרים קונקרטיים שנשארים אצלכם — לא הרצאה חד-פעמית.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-5 lg:gap-6">
+
+      <article class="bg-white hairline rounded-2xl p-7 lg:p-8 shadow-card hover:shadow-cardHover transition-shadow">
+        <div class="flex items-start justify-between mb-5">
+          <div class="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
+            <svg class="w-5 h-5 text-accent" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75">
+              <path d="M3 4.5h14M3 10h14M3 15.5h9" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <span class="text-xs text-ink-700 bg-slate-100 px-2.5 py-1 rounded-full">תוצר 1</span>
+        </div>
+        <h3 class="text-xl font-semibold text-ink-900 mb-2 leading-snug">Prompt-set אישי לכל משתתף</h3>
+        <p class="text-ink-700 leading-relaxed">
+          ספריית prompts שנבנית במהלך ההדרכה ומותאמת לתפקיד הספציפי — קופי, בריפים, ניתוח. מוכנה לשימוש מיידי.
+        </p>
+      </article>
+
+      <article class="bg-white hairline rounded-2xl p-7 lg:p-8 shadow-card hover:shadow-cardHover transition-shadow">
+        <div class="flex items-start justify-between mb-5">
+          <div class="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
+            <svg class="w-5 h-5 text-accent" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75">
+              <path d="M10 2.5l2.4 4.9 5.4.8-3.9 3.8.9 5.4L10 14.8l-4.8 2.5.9-5.4L2.2 8.2l5.4-.8L10 2.5z" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span class="text-xs text-ink-700 bg-slate-100 px-2.5 py-1 rounded-full">תוצר 2</span>
+        </div>
+        <h3 class="text-xl font-semibold text-ink-900 mb-2 leading-snug">כלי עבודה חי שכל אחד בנה</h3>
+        <p class="text-ink-700 leading-relaxed">
+          כל משתתף יוצא עם תהליך אחד מהעבודה שלו שכבר עובד עם AI — לא דמו, אלא משהו אמיתי מהיום-יום שלו.
+        </p>
+      </article>
+
+      <article class="bg-white hairline rounded-2xl p-7 lg:p-8 shadow-card hover:shadow-cardHover transition-shadow">
+        <div class="flex items-start justify-between mb-5">
+          <div class="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
+            <svg class="w-5 h-5 text-accent" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75">
+              <path d="M10 2v16 M2 10h16" stroke-linecap="round"/>
+              <circle cx="10" cy="10" r="7"/>
+            </svg>
+          </div>
+          <span class="text-xs text-ink-700 bg-slate-100 px-2.5 py-1 rounded-full">תוצר 3</span>
+        </div>
+        <h3 class="text-xl font-semibold text-ink-900 mb-2 leading-snug">ליווי מהצוות לשבועיים שלאחר</h3>
+        <p class="text-ink-700 leading-relaxed">
+          שאלות בוואטסאפ ישירות לצוות nCode — ללא עלות נוספת. לוודא שהשינוי נמשך גם אחרי יום ה-1.
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<div class="rule max-w-5xl mx-auto"></div>
+
+<!-- INSTRUCTOR -->
+<section class="py-20 lg:py-28">
+  <div class="max-w-5xl mx-auto px-6 lg:px-8">
+
+    <div class="max-w-2xl mb-14">
+      <div class="text-xs font-semibold tracking-widest uppercase text-accent mb-4">03 · ההנחיה</div>
+      <h2 class="text-balance text-3xl lg:text-4xl font-semibold tracking-tight text-ink-900 mb-4">
+        מי מנחה
+      </h2>
+    </div>
+
+    <!-- Main instructor -->
+    <div class="bg-white hairline rounded-2xl shadow-card overflow-hidden mb-6">
+      <div class="grid md:grid-cols-[280px_1fr]">
+
+        <div class="relative min-h-[320px] overflow-hidden">
+          <!-- Replace src with Ben's actual photo URL -->
+          <img src="../toyota-2026/ben-lavi.jpeg" alt="בן לביא"
+               class="absolute inset-0 w-full h-full object-cover object-top">
+          <div class="absolute inset-0 bg-gradient-to-br from-ink-900 to-ink-800"></div>
+          <div class="absolute inset-0 hero-grid opacity-50"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-ink-950/80 via-transparent to-transparent"></div>
+          <div class="relative h-full flex flex-col justify-end p-8">
+            <div class="text-white font-semibold text-lg">בן לביא</div>
+            <div class="text-white/60 text-sm mt-1">מייסד שותף, nCode</div>
+          </div>
+        </div>
+
+        <div class="p-8 lg:p-10">
+          <p class="text-ink-900 text-lg leading-relaxed mb-6 text-pretty">
+            מומחה AI ומייסד שותף nCode. מתמחה בהכשרת צוותים שאינם טכניים — שיווק, תפעול, HR — לשלב AI בתהליכי העבודה היומיומיים שלהם ולהפיק ממנו ערך אמיתי.
+          </p>
+
+          <div class="grid grid-cols-2 gap-x-8 gap-y-5" style="border-top: 1px solid #E5E7EB; padding-top: 24px;">
+            <div>
+              <div class="text-2xl font-semibold text-ink-900 step-num">nCode</div>
+              <div class="text-sm text-ink-700 mt-1">מאות בוגרים שהטמיעו AI בעסק</div>
+            </div>
+            <div>
+              <div class="text-2xl font-semibold text-ink-900 step-num">100%</div>
+              <div class="text-sm text-ink-700 mt-1">בעברית, מותאם לארגון</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Additional mentors -->
+    <div class="grid md:grid-cols-2 gap-5">
+      <div class="bg-white hairline rounded-2xl p-7 shadow-card">
+        <div class="text-xs font-semibold tracking-widest uppercase text-accent mb-4">מנטור</div>
+        <div class="font-semibold text-ink-900 text-lg mb-1">מנטור בכיר — nCode</div>
+        <p class="text-ink-700 text-sm leading-relaxed">
+          בוגר nCode ומנחה מנוסה. מלווה משתתפים לאורך חלק ה-workshop — ליווי אישי ב-1:5, תרגול עם תוכן אמיתי מהעבודה.
+        </p>
+      </div>
+      <div class="bg-white hairline rounded-2xl p-7 shadow-card">
+        <div class="text-xs font-semibold tracking-widest uppercase text-accent mb-4">מנטור</div>
+        <div class="font-semibold text-ink-900 text-lg mb-1">מנטור בכיר — nCode</div>
+        <p class="text-ink-700 text-sm leading-relaxed">
+          בוגר nCode ומנחה מנוסה. אחראי על תמיכה טכנית וליווי שוטף לאורך הסדנה — לוודא שכולם יוצאים עם תוצר עובד.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="rule max-w-5xl mx-auto"></div>
+
+<!-- PRICE -->
+<section class="py-20 lg:py-28">
+  <div class="max-w-5xl mx-auto px-6 lg:px-8">
+
+    <div class="max-w-2xl mb-14">
+      <div class="text-xs font-semibold tracking-widest uppercase text-accent mb-4">04 · השקעה</div>
+      <h2 class="text-balance text-3xl lg:text-4xl font-semibold tracking-tight text-ink-900 mb-4">
+        מחיר ותנאים
+      </h2>
+      <p class="text-pretty text-lg text-ink-700 leading-relaxed">
+        מחיר חבילה אחד, ללא הפתעות. כולל את כל התוצרים המפורטים לעיל.
+      </p>
+    </div>
+
+    <div class="premium-card rounded-3xl text-white shadow-premium overflow-hidden">
+
+      <div class="px-8 lg:px-12 pt-10 pb-8 border-b border-white/10">
+        <div class="flex items-baseline justify-between flex-wrap gap-6">
+          <div>
+            <div class="text-accent-light text-sm font-medium mb-2">חבילה מלאה</div>
+            <div class="text-2xl lg:text-3xl font-semibold tracking-tight">הדרכת AI לצוות השיווק</div>
+          </div>
+          <div class="text-left">
+            <div class="text-5xl lg:text-6xl font-semibold tracking-tight step-num">
+              ₪40,000
+            </div>
+            <div class="text-sm text-white/60 mt-2">לפני מע"מ · מחיר קבוע</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-px bg-white/10">
+
+        <div class="bg-ink-900 px-8 lg:px-12 py-10">
+          <div class="flex items-center gap-2 mb-6">
+            <svg class="w-5 h-5 text-accent-light" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 10l4 4 8-8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <h3 class="font-semibold text-base">המחיר כולל</h3>
+          </div>
+          <ul class="space-y-3.5 text-white/80 leading-relaxed">
+            <li class="flex gap-3">
+              <span class="text-accent-light mt-1.5 shrink-0">·</span>
+              <span>שיחת תיאום לפני ההדרכה</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-accent-light mt-1.5 shrink-0">·</span>
+              <span>התאמת התכנים לטויוטה ישראל</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-accent-light mt-1.5 shrink-0">·</span>
+              <span>הנחיה מלאה — 4 שעות, 10 משתתפים</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-accent-light mt-1.5 shrink-0">·</span>
+              <span>חומרי הדרכה + סיכום כתוב</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-accent-light mt-1.5 shrink-0">·</span>
+              <span>ליווי מהצוות לשבועיים שלאחר ההדרכה</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-ink-900 px-8 lg:px-12 py-10">
+          <div class="flex items-center gap-2 mb-6">
+            <svg class="w-5 h-5 text-white/40" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 5l10 10M15 5L5 15" stroke-linecap="round"/>
+            </svg>
+            <h3 class="font-semibold text-base">לא כולל</h3>
+          </div>
+          <ul class="space-y-3.5 text-white/60 leading-relaxed">
+            <li class="flex gap-3">
+              <span class="mt-1.5 shrink-0">·</span>
+              <span>מע"מ כחוק (18%)</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-1.5 shrink-0">·</span>
+              <span>ציוד ומחשבים (משתתפים מגיעים עם מחשב אישי)</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-1.5 shrink-0">·</span>
+              <span>נסיעות מחוץ לאזור המרכז</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="px-8 lg:px-12 py-8 bg-ink-950/50 border-t border-white/10">
+        <div class="grid sm:grid-cols-2 gap-6 text-sm">
+          <div>
+            <div class="text-white/50 text-xs uppercase tracking-wide mb-2">תנאי תשלום</div>
+            <div class="text-white">תשלום מלא עם אישור ההצעה</div>
+          </div>
+          <div>
+            <div class="text-white/50 text-xs uppercase tracking-wide mb-2">תוקף ההצעה</div>
+            <div class="text-white">30 יום</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="rule max-w-5xl mx-auto"></div>
+
+<!-- NEXT STEPS -->
+<section class="py-20 lg:py-28">
+  <div class="max-w-5xl mx-auto px-6 lg:px-8">
+
+    <div class="max-w-2xl mb-14">
+      <div class="text-xs font-semibold tracking-widest uppercase text-accent mb-4">05 · ההמשך</div>
+      <h2 class="text-balance text-3xl lg:text-4xl font-semibold tracking-tight text-ink-900 mb-4">
+        צעדים הבאים
+      </h2>
+      <p class="text-pretty text-lg text-ink-700 leading-relaxed">
+        מכאן לתאריך — בלי בירוקרטיה מיותרת.
+      </p>
+    </div>
+
+    <div class="relative">
+      <div class="hidden md:block absolute top-6 bottom-6 right-[27px] w-px bg-slate-200"></div>
+
+      <ol class="space-y-8">
+
+        <li class="relative flex gap-6 items-start">
+          <div class="shrink-0 w-14 h-14 rounded-full bg-ink-900 text-white flex items-center justify-center text-lg font-semibold step-num shadow-card relative z-10">01</div>
+          <div class="pt-2 flex-1">
+            <h3 class="text-xl font-semibold text-ink-900 mb-2">אישור וקביעת תאריך</h3>
+            <p class="text-ink-700 leading-relaxed text-pretty max-w-2xl">
+              חוזה ותשלום. מיד לאחר מכן מתחילים להתאים את התכנים לטויוטה ישראל.
+            </p>
+          </div>
+          <div class="hidden sm:block text-sm text-ink-700 pt-3 shrink-0">שבוע 1</div>
+        </li>
+
+        <li class="relative flex gap-6 items-start">
+          <div class="shrink-0 w-14 h-14 rounded-full bg-ink-900 text-white flex items-center justify-center text-lg font-semibold step-num shadow-card relative z-10">02</div>
+          <div class="pt-2 flex-1">
+            <h3 class="text-xl font-semibold text-ink-900 mb-2">ההדרכה</h3>
+            <p class="text-ink-700 leading-relaxed text-pretty max-w-2xl">
+              4 שעות, 10 משתתפים, תוצרים שאפשר להשתמש בהם ביום הראשון לאחריה.
+            </p>
+          </div>
+          <div class="hidden sm:block text-sm text-ink-700 pt-3 shrink-0">לפי תאריך</div>
+        </li>
+
+        <li class="relative flex gap-6 items-start">
+          <div class="shrink-0 w-14 h-14 rounded-full bg-accent text-white flex items-center justify-center text-lg font-semibold step-num shadow-card relative z-10">03</div>
+          <div class="pt-2 flex-1">
+            <h3 class="text-xl font-semibold text-ink-900 mb-2">ליווי לאחר</h3>
+            <p class="text-ink-700 leading-relaxed text-pretty max-w-2xl">
+              שבועיים של תמיכה מהצוות — שאלות, התאמת prompts, וידוא שהשינוי נטמע.
+            </p>
+          </div>
+          <div class="hidden sm:block text-sm text-ink-700 pt-3 shrink-0">שבועיים</div>
+        </li>
+
+      </ol>
+    </div>
+
+    <div class="mt-16 bg-ink-900 rounded-2xl p-8 lg:p-12 text-white relative overflow-hidden">
+      <div class="absolute inset-0 hero-glow opacity-60"></div>
+      <div class="relative flex items-center justify-between flex-wrap gap-6">
+        <div>
+          <h3 class="text-2xl font-semibold tracking-tight mb-2">מוכנים להתחיל?</h3>
+          <p class="text-white/70">אשמח לתאם שיחה קצרה עם קרן.</p>
+        </div>
+        <div class="flex gap-3 no-print">
+          <a href="mailto:ben@benla.co.il?subject=אישור הצעת מחיר — טויוטה ישראל"
+             class="bg-white text-ink-900 px-6 py-3 rounded-lg font-semibold hover:bg-white/90 transition-colors">
+            אישור ההצעה
+          </a>
+          <a href="mailto:ben@benla.co.il"
+             class="bg-white/10 hairline border-white/20 text-white px-6 py-3 rounded-lg font-medium hover:bg-white/15 transition-colors">
+            יש שאלה
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-ink-900 text-white mt-10">
+  <div class="max-w-5xl mx-auto px-6 lg:px-8 py-14">
+
+    <div class="grid md:grid-cols-3 gap-10 mb-12">
+
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <span class="logo-mark">n</span>
+          <span class="text-lg font-semibold">nCode</span>
+        </div>
+        <p class="text-white/60 text-sm leading-relaxed max-w-xs">
+          ייעוץ והדרכות AI לארגונים תאגידיים. מהבנה עסקית לתוצאה מדידה.
+        </p>
+      </div>
+
+      <div>
+        <div class="text-xs uppercase tracking-wider text-white/40 mb-4 font-semibold">איש קשר</div>
+        <div class="space-y-2 text-sm">
+          <div class="text-white font-medium">בן לביא</div>
+          <div class="text-white/60">מייסד שותף</div>
+          <a href="mailto:ben@benla.co.il" class="text-white/80 hover:text-accent-light transition-colors block" dir="ltr">ben@benla.co.il</a>
+          <a href="tel:+972502996880" class="text-white/80 hover:text-accent-light transition-colors block" dir="ltr">+972 50-299-6880</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="text-xs uppercase tracking-wider text-white/40 mb-4 font-semibold">פרטי ההצעה</div>
+        <div class="space-y-2 text-sm">
+          <div class="flex justify-between gap-4">
+            <span class="text-white/60">לקוח</span>
+            <span class="text-white">טויוטה ישראל</span>
+          </div>
+          <div class="flex justify-between gap-4">
+            <span class="text-white/60">תאריך</span>
+            <span class="text-white">אפריל 2026</span>
+          </div>
+          <div class="flex justify-between gap-4">
+            <span class="text-white/60">מספר הצעה</span>
+            <span class="text-white step-num" dir="ltr">NC-2026-001</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="border-t border-white/10 pt-6 flex justify-between items-center flex-wrap gap-4 text-xs text-white/40">
+      <div>© nCode · כל הזכויות שמורות</div>
+      <div>הצעה זו חסויה ומיועדת לטויוטה ישראל בלבד</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
