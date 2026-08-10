@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="הצעת nCode ל-Wolt: האקתון AI מעשי בן 5 שעות לצוותי החברה">
+<meta name="robots" content="noindex,nofollow">
+<title>nCode × Wolt — AI Hackathon Proposal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#111112;
+  --ink-2:#232326;
+  --paper:#f3eee5;
+  --paper-2:#fffaf2;
+  --muted:#817b72;
+  --coral:#ff6f61;
+  --wolt:#009de0;
+  --wolt-soft:#dff5fc;
+  --white:#fff;
+  --line:rgba(17,17,18,.14);
+  --shadow:0 28px 80px rgba(15,15,18,.16);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Heebo,Arial,sans-serif;font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+button{font:inherit}
+.wrap{width:min(1160px,calc(100% - 40px));margin-inline:auto}
+.eyebrow{display:flex;align-items:center;gap:12px;font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.eyebrow::before{content:"";width:42px;height:4px;background:var(--coral)}
+.eyebrow.blue::before{background:var(--wolt)}
+.section{padding:96px 0}
+.section-head{max-width:760px;margin-bottom:52px}
+.section-head h2{font-size:clamp(36px,5vw,64px);line-height:1.02;letter-spacing:-.05em;margin:16px 0 18px}
+.section-head p{font-size:21px;color:#4d4943;margin:0;max-width:680px}
+
+.topbar{position:fixed;z-index:60;inset:0 0 auto;background:rgba(17,17,18,.86);color:#fff;backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.1)}
+.topbar-in{height:68px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand-lockup{display:flex;align-items:center;gap:13px;font-weight:800}
+.brand-lockup img{width:98px;height:auto;filter:brightness(0) invert(1)}
+.cross{color:rgba(255,255,255,.35);font-weight:300}
+.wolt-word{font-size:25px;color:var(--wolt);font-weight:900;letter-spacing:-.06em}
+.nav-actions{display:flex;align-items:center;gap:8px}
+.nav-actions a,.nav-actions button{border:0;background:transparent;color:#fff;text-decoration:none;cursor:pointer;padding:10px 14px;border-radius:999px;font-size:14px;font-weight:700}
+.nav-actions .primary{background:var(--wolt);color:#fff;padding-inline:20px}
+
+.hero{min-height:100vh;background:var(--ink);color:#fff;position:relative;overflow:hidden;display:flex;align-items:center;padding:130px 0 70px}
+.hero::before{content:"";position:absolute;inset:-15%;background:radial-gradient(circle at 18% 30%,rgba(0,157,224,.28),transparent 30%),radial-gradient(circle at 78% 22%,rgba(255,111,97,.18),transparent 28%),linear-gradient(115deg,transparent 0 48%,rgba(255,255,255,.025) 48% 49%,transparent 49% 100%);transform:rotate(-2deg)}
+.hero-grid{position:absolute;inset:0;opacity:.18;background-image:linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px);background-size:72px 72px;mask-image:linear-gradient(to bottom,black,transparent 80%)}
+.hero-content{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr);gap:70px;align-items:end}
+.hero h1{font-family:Anton,Heebo,sans-serif;font-weight:400;font-size:clamp(70px,11vw,155px);line-height:.82;letter-spacing:-.025em;text-transform:uppercase;margin:22px 0 28px;direction:ltr;text-align:right}
+.hero h1 span{display:block;color:var(--wolt)}
+.hero-copy{font-size:clamp(20px,2.2vw,29px);line-height:1.45;color:rgba(255,255,255,.76);max-width:760px;margin:0}
+.hero-copy strong{color:#fff}
+.hero-card{position:relative;background:var(--paper-2);color:var(--ink);padding:34px 30px 28px;box-shadow:var(--shadow);transform:rotate(-2deg)}
+.hero-card::before{content:"";position:absolute;width:64%;height:24px;top:-12px;right:18%;background:rgba(0,157,224,.82);transform:rotate(1deg);mix-blend-mode:multiply}
+.hero-card .big{font-family:Anton,Heebo,sans-serif;font-size:72px;line-height:.9;margin-top:12px}
+.hero-card .label{font-weight:800;font-size:21px}
+.hero-card .sub{color:var(--muted);font-size:15px;border-top:1px solid var(--line);margin-top:24px;padding-top:18px}
+.hero-bottom{position:relative;z-index:2;margin-top:60px;display:grid;grid-template-columns:repeat(3,1fr);border:1px solid rgba(255,255,255,.13)}
+.hero-stat{padding:20px 24px;border-left:1px solid rgba(255,255,255,.13)}
+.hero-stat:last-child{border-left:0}
+.hero-stat small{display:block;color:rgba(255,255,255,.45);font-size:12px;margin-bottom:4px}
+.hero-stat strong{font-size:18px}
+
+.manifesto{background:var(--paper-2);position:relative;overflow:hidden}
+.manifesto::after{content:"WOLT TEAMS. BUILT SMARTER.";position:absolute;direction:ltr;white-space:nowrap;left:-1%;bottom:-38px;font-family:Anton,sans-serif;font-size:11.5vw;line-height:1;color:rgba(17,17,18,.035)}
+.manifesto-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:80px;align-items:start;position:relative;z-index:1}
+.manifesto-quote{font-family:Anton,Heebo,sans-serif;font-size:clamp(48px,7vw,92px);line-height:.95;letter-spacing:-.035em;text-transform:uppercase;direction:ltr;text-align:left}
+.manifesto-quote em{font-style:normal;color:var(--wolt)}
+.manifesto-text{font-size:23px;color:#37332f}
+.manifesto-text strong{color:var(--ink)}
+
+.outcomes{background:var(--ink-2);color:#fff}
+.outcomes .section-head p{color:rgba(255,255,255,.62)}
+.outcome-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.12)}
+.outcome{background:var(--ink-2);padding:38px 32px;min-height:280px;transition:.25s ease}
+.outcome:hover{background:#2a2a2e;transform:translateY(-4px)}
+.outcome-num{font-family:Anton,sans-serif;color:var(--wolt);font-size:30px;letter-spacing:.06em}
+.outcome h3{font-size:25px;line-height:1.2;margin:34px 0 12px}
+.outcome p{color:rgba(255,255,255,.62);margin:0}
+
+.timeline{position:relative}
+.timeline::before{content:"";position:absolute;right:32px;top:30px;bottom:30px;width:2px;background:linear-gradient(var(--wolt),var(--coral))}
+.timeline-item{display:grid;grid-template-columns:64px 135px 1fr;gap:24px;align-items:start;margin-bottom:28px;position:relative}
+.timeline-dot{width:18px;height:18px;border-radius:50%;background:var(--paper-2);border:5px solid var(--wolt);margin:7px 23px 0 0;box-shadow:0 0 0 7px var(--paper)}
+.timeline-item:nth-child(n+4) .timeline-dot{border-color:var(--coral)}
+.timeline-time{font-family:Anton,sans-serif;font-size:26px;direction:ltr;text-align:right}
+.timeline-body{background:var(--paper-2);border:1px solid var(--line);padding:22px 26px}
+.timeline-body h3{margin:0 0 6px;font-size:22px}
+.timeline-body p{margin:0;color:#625c54}
+
+.packages{background:linear-gradient(90deg,var(--paper) 0 50%,var(--wolt-soft) 50% 100%)}
+.package-grid{display:grid;grid-template-columns:1fr 1.08fr;gap:24px;align-items:stretch}
+.package{background:var(--paper-2);border:1px solid var(--line);padding:38px;position:relative;display:flex;flex-direction:column}
+.package.premium{background:var(--ink);color:#fff;border-color:var(--ink);box-shadow:var(--shadow);transform:translateY(-12px);overflow:hidden}
+.package.premium::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:var(--coral);filter:blur(100px);opacity:.20;left:-150px;top:-140px}
+.badge{position:absolute;top:0;left:28px;background:var(--wolt);color:#fff;padding:8px 16px;font-size:13px;font-weight:900;letter-spacing:.06em}
+.package-top{position:relative;z-index:1;border-bottom:1px solid var(--line);padding-bottom:24px;margin-bottom:24px}
+.premium .package-top{border-color:rgba(255,255,255,.16)}
+.package-kicker{font-size:13px;font-weight:900;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
+.premium .package-kicker{color:var(--wolt)}
+.package h3{font-family:Anton,Heebo,sans-serif;font-size:52px;line-height:1;margin:12px 0 20px;text-transform:uppercase}
+.price{display:flex;align-items:flex-end;gap:8px;direction:ltr;justify-content:flex-end}
+.price strong{font-family:Anton,sans-serif;font-size:62px;line-height:.9;font-weight:400}
+.price span{font-size:15px;color:var(--muted);padding-bottom:5px;direction:rtl}
+.premium .price span{color:rgba(255,255,255,.55)}
+.features{list-style:none;margin:0 0 30px;padding:0;position:relative;z-index:1}
+.features li{display:grid;grid-template-columns:24px 1fr;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}
+.premium .features li{border-color:rgba(255,255,255,.13)}
+.features li::before{content:"✓";font-weight:900;color:var(--wolt)}
+.package-note{margin-top:auto;padding-top:16px;font-size:14px;color:var(--muted);position:relative;z-index:1}
+.premium .package-note{color:rgba(255,255,255,.55)}
+.package-cta{display:block;text-align:center;text-decoration:none;padding:15px 20px;font-weight:900;background:var(--ink);color:#fff;margin-top:18px;position:relative;z-index:1}
+.premium .package-cta{background:var(--wolt)}
+
+.included-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.included-card{border:1px solid var(--line);background:var(--paper-2);padding:28px;display:grid;grid-template-columns:48px 1fr;gap:18px}
+.included-icon{width:48px;height:48px;border-radius:50%;background:var(--wolt-soft);display:flex;align-items:center;justify-content:center;color:var(--wolt);font-weight:900}
+.included-card h3{margin:0 0 5px;font-size:20px}
+.included-card p{margin:0;color:#625c54;font-size:16px}
+
+.terms{background:var(--paper-2)}
+.terms-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px}
+.terms-list{margin:0;padding:0 20px 0 0;color:#4d4943}
+.terms-list li{margin-bottom:13px;padding-right:6px}
+.signature{background:var(--ink);color:#fff;padding:34px;position:relative;overflow:hidden}
+.signature::after{content:"FROM IDEA TO IMPACT.";position:absolute;bottom:-3px;left:12px;direction:ltr;font-family:Anton,sans-serif;font-size:44px;color:rgba(255,255,255,.05);white-space:nowrap}
+.signature img{width:112px;filter:brightness(0) invert(1);margin-bottom:34px}
+.signature h3{font-size:27px;margin:0 0 10px}
+.signature p{color:rgba(255,255,255,.64);margin:0}
+.signature a{display:inline-block;margin-top:22px;color:var(--wolt);font-weight:800;text-decoration:none}
+
+.final-cta{background:var(--wolt);color:#fff;padding:86px 0;position:relative;overflow:hidden}
+.final-cta::after{content:"LET'S BUILD";position:absolute;direction:ltr;left:-20px;bottom:-45px;font-family:Anton,sans-serif;font-size:15vw;line-height:1;color:rgba(255,255,255,.1);white-space:nowrap}
+.final-in{position:relative;z-index:1;display:flex;align-items:end;justify-content:space-between;gap:40px}
+.final-cta h2{font-size:clamp(44px,7vw,84px);line-height:.96;letter-spacing:-.055em;margin:0;max-width:760px}
+.final-cta p{font-size:20px;margin:16px 0 0;color:rgba(255,255,255,.8)}
+.final-button{flex:none;background:#fff;color:var(--ink);padding:17px 28px;text-decoration:none;font-weight:900;box-shadow:8px 8px 0 var(--ink)}
+
+footer{background:var(--ink);color:rgba(255,255,255,.5);padding:24px 0;font-size:13px}
+.footer-in{display:flex;justify-content:space-between;gap:20px;align-items:center}
+footer strong{color:#fff}
+
+
+/* Clear 50/50 brand system */
+.brand-ncode,.brand-wolt{position:relative;overflow:hidden}
+.brand-ncode{background:var(--paper-2);color:var(--ink)}
+.brand-ncode::before{content:"";position:absolute;width:210px;height:34px;top:28px;left:-54px;background:rgba(255,111,97,.68);transform:rotate(-7deg);mix-blend-mode:multiply}
+.brand-ncode .eyebrow::before{background:var(--coral)}
+.brand-ncode .section-head h2{font-family:Heebo,sans-serif;font-weight:900}
+.brand-wolt{background:var(--wolt);color:#fff}
+.brand-wolt::before,.brand-wolt::after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.1);pointer-events:none}
+.brand-wolt::before{width:440px;height:440px;left:-170px;top:-190px}
+.brand-wolt::after{width:250px;height:250px;right:-90px;bottom:-110px}
+.brand-wolt .wrap{position:relative;z-index:1}
+.brand-wolt .eyebrow{color:rgba(255,255,255,.7)}
+.brand-wolt .eyebrow::before{background:#fff;border-radius:999px}
+.brand-wolt .section-head p{color:rgba(255,255,255,.75)}
+.brand-wolt .section-head h2{color:#fff}
+.brand-divider{height:14px;background:linear-gradient(90deg,var(--ink) 0 50%,var(--wolt) 50% 100%)}
+
+/* nCode geometry: paper, tape, sharp corners */
+.brand-ncode .timeline-body,.brand-ncode .included-card{border-radius:0;box-shadow:8px 8px 0 rgba(255,111,97,.12)}
+.brand-ncode .timeline-item:nth-child(even) .timeline-body{transform:rotate(.25deg)}
+
+/* Wolt geometry: bubbles, pills, generous curves */
+.brand-wolt .outcome-grid{background:transparent;border:0;gap:18px}
+.brand-wolt .outcome{background:#fff;color:var(--ink);border-radius:34px;min-height:280px;box-shadow:0 18px 50px rgba(0,71,102,.14)}
+.brand-wolt .outcome:hover{background:#fff;transform:translateY(-5px)}
+.brand-wolt .outcome-num{display:inline-flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:50%;background:var(--wolt-soft);color:var(--wolt)}
+.brand-wolt .outcome p{color:#5a5a5f}
+.brand-wolt .included-card{border:0;border-radius:28px;box-shadow:0 16px 42px rgba(0,71,102,.13)}
+.brand-wolt .included-icon{border-radius:50%;background:var(--wolt);color:#fff}
+
+/* Package cards deliberately carry one brand each */
+.package.core-wolt{background:#fff;border:0;border-radius:38px;box-shadow:0 24px 70px rgba(0,71,102,.15)}
+.package.core-wolt .package-kicker{color:var(--wolt)}
+.package.core-wolt .package-cta{background:var(--wolt);border-radius:999px}
+.package.premium.ncode-premium{border-radius:0;border-top:10px solid var(--coral)}
+.package.premium.ncode-premium .package-kicker{color:var(--coral)}
+.package.premium.ncode-premium .package-cta{background:var(--coral)}
+.package.premium.ncode-premium .badge{background:var(--coral);border-radius:0}
+.package.premium.ncode-premium::before{content:"";position:absolute;width:190px;height:28px;background:rgba(243,238,229,.8);right:-45px;top:28px;transform:rotate(8deg);opacity:.34}
+
+/* Hybrid hero: nCode typography + Wolt object language */
+.hero-card{background:var(--wolt);color:#fff;border-radius:88px 88px 18px 88px;transform:none;padding:44px 34px 34px}
+.hero-card::before{width:92px;height:92px;border-radius:50%;top:-24px;right:-22px;background:var(--coral);mix-blend-mode:normal}
+.hero-card .sub{color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.24)}
+.hero h1::after{content:"";display:block;width:128px;height:18px;background:var(--coral);margin-top:28px;transform:rotate(-2deg)}
+
+/* Simple section handoff: no fancy transitions */
+section + section{border-top:1px solid rgba(17,17,18,.12)}
+.brand-wolt + section,section + .brand-wolt{border-top:0}
+
+@media(max-width:900px){
+  .hero-content,.manifesto-grid,.terms-grid{grid-template-columns:1fr}
+  .hero-card{max-width:420px;margin-top:20px}
+  .hero-bottom,.outcome-grid{grid-template-columns:1fr}
+  .hero-stat{border-left:0;border-bottom:1px solid rgba(255,255,255,.13)}
+  .package-grid{grid-template-columns:1fr}.package.premium{transform:none}.packages{background:var(--paper)}.hero-card{border-radius:52px 52px 14px 52px}
+  .final-in{display:block}.final-button{display:inline-block;margin-top:30px}
+}
+@media(max-width:650px){
+  body{font-size:16px}.wrap{width:min(100% - 28px,1160px)}.section{padding:70px 0}
+  .topbar-in{height:58px}.brand-lockup img{width:76px}.nav-actions button{display:none}.nav-actions a:not(.primary){display:none}.nav-actions .primary{padding:8px 14px;font-size:12px}
+  .hero{padding-top:100px;min-height:auto}.hero h1{font-size:68px}.hero-content{gap:24px}.hero-copy{font-size:19px}.hero-bottom{margin-top:38px}
+  .manifesto-grid{gap:34px}.manifesto-text{font-size:19px}.outcome{min-height:auto}
+  .timeline-item{grid-template-columns:48px 1fr;gap:14px}.timeline-time{grid-column:2;font-size:21px;text-align:left}.timeline-body{grid-column:2;padding:18px}.timeline::before{right:23px}.timeline-dot{margin-right:14px;grid-row:1 / 3}
+  .package{padding:30px 22px}.package h3{font-size:44px}.price strong{font-size:54px}
+  .included-grid{grid-template-columns:1fr}.included-card{padding:22px;grid-template-columns:40px 1fr}.included-icon{width:40px;height:40px}
+  .footer-in{display:block;text-align:center}.footer-in span{display:block;margin:4px}
+}
+@page{size:A4;margin:10mm}
+@media print{
+  .topbar,.no-print{display:none!important}body{background:#fff;font-size:12px}.section{padding:35px 0}.wrap{width:100%}
+  .hero{min-height:0;padding:50px 0}.hero h1{font-size:76px}.hero-copy{font-size:16px}.hero-card{box-shadow:none}.hero-bottom{margin-top:30px}
+  .manifesto,.outcomes,.packages,.terms,.final-cta,.signature,.premium{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  section,.package,.outcome,.included-card{break-inside:avoid}.package.premium{transform:none;box-shadow:none}.final-cta{padding:45px 0}
+}
+</style>
+</head>
+<body>
+<header class="topbar no-print">
+  <div class="wrap topbar-in">
+    <div class="brand-lockup"><img src="assets/ncode-logo.png" alt="nCode"><span class="cross">×</span><span class="wolt-word">Wolt</span></div>
+    <div class="nav-actions"><a href="#packages">החבילות</a><button onclick="window.print()">הורדה ל-PDF</button><a class="primary" href="#next">מתקדמים</a></div>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="wrap">
+    <div class="hero-content">
+      <div>
+        <div class="eyebrow blue">הצעה ייעודית ל-Wolt · אוגוסט 2026</div>
+        <h1>AI <span>HACKATHON</span></h1>
+        <p class="hero-copy"><strong>חמש שעות. צוותים אמיתיים. אתגרים אמיתיים.</strong><br>יום עבודה מעשי שבו צוותי Wolt הופכים משימה תקועה לפתרון AI עובד — בליווי מנטורים צמוד, משלב הרעיון ועד הדמו.</p>
+      </div>
+      <aside class="hero-card">
+        <div class="label">לא עוד הרצאה על AI.</div>
+        <div class="big">BUILD.</div>
+        <div class="label">כל צוות יוצא עם משהו שבנה בעצמו.</div>
+        <div class="sub">במשרדי Wolt · האקתון מעשי · 5 שעות</div>
+      </aside>
+    </div>
+    <div class="hero-bottom">
+      <div class="hero-stat"><small>הפורמט</small><strong>Hackathon ממוקד תוצרים</strong></div>
+      <div class="hero-stat"><small>הליווי</small><strong>4 או 10 מנטורים מטעם nCode</strong></div>
+      <div class="hero-stat"><small>מה נשאר</small><strong>Prototype + תהליך הטמעה</strong></div>
+    </div>
+  </div>
+</section>
+
+<section class="section manifesto brand-ncode">
+  <div class="wrap manifesto-grid">
+    <div class="manifesto-quote">YOUR TEAM.<br><em>BUILT SMARTER.</em></div>
+    <div class="manifesto-text">
+      <div class="eyebrow">למה האקתון</div>
+      <p><strong>הפער בין “אנחנו משתמשים ב-AI” לבין ארגון שבאמת עובד עם AI — הוא היכולת לבנות.</strong></p>
+      <p>במקום עוד יום של מצגות, צוותי Wolt עובדים על המשימות שלהם: מזהים צוואר בקבוק, מתכננים פתרון, בונים אותו, בודקים ומציגים. המנטורים שלנו נמצאים לידם כדי להפוך רעיון לכלי שאפשר להמשיך לפתח ביום שאחרי.</p>
+    </div>
+  </div>
+</section>
+
+<div class="brand-divider" aria-hidden="true"></div>
+<section class="section outcomes brand-wolt">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow blue">התוצאה</div>
+      <h2>מה יוצא מהחדר בסוף היום</h2>
+      <p>לא הבטחה תיאורטית — שלושה נכסים שכל צוות יכול להמשיך לעבוד איתם.</p>
+    </div>
+    <div class="outcome-grid">
+      <article class="outcome"><div class="outcome-num">01</div><h3>פתרון AI עובד</h3><p>Prototype או Workflow פעיל שמתמודד עם משימה אמיתית מהעבודה השוטפת.</p></article>
+      <article class="outcome"><div class="outcome-num">02</div><h3>תהליך מתועד</h3><p>הגדרה ברורה של הקלטים, סדר הפעולות, התוצרים והאדם שממשיך להוביל אותו.</p></article>
+      <article class="outcome"><div class="outcome-num">03</div><h3>תוכנית ליום שאחרי</h3><p>צעדי המשך לבדיקה, שיפור והטמעה — יחד עם מסגרת ליווי בהתאם לחבילה.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section brand-ncode">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">5 שעות · מקצה לקצה</div>
+      <h2>מבעיה עסקית לדמו עובד</h2>
+      <p>הלו״ז הסופי יותאם לכמות המשתתפים והצוותים, אבל הקצב נשאר חד: מבינים, בונים, בודקים ומציגים.</p>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-time">00:00</div><div class="timeline-body"><h3>פתיחה ויישור קו</h3><p>כללי המשחק, דוגמאות, חלוקה לצוותים והגדרת תוצר ברור לכל קבוצה.</p></div></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-time">00:35</div><div class="timeline-body"><h3>Problem Sprint</h3><p>בחירת תהליך שמכאיב היום, פירוקו לשלבים והגדרת מדד הצלחה.</p></div></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-time">01:15</div><div class="timeline-body"><h3>Build Sprint I</h3><p>בניית הגרסה הראשונה עם ליווי Hands-on של המנטורים בכל צוות.</p></div></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-time">02:45</div><div class="timeline-body"><h3>בדיקה, דיוק והפסקה</h3><p>הרצה על מידע אמיתי, זיהוי כשלים, חידוד התהליך והכנה לסבב השני.</p></div></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-time">03:20</div><div class="timeline-body"><h3>Build Sprint II</h3><p>שיפור התוצר, תיעוד השימוש והפיכת הדמו למשהו שאפשר להמשיך איתו.</p></div></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-time">04:25</div><div class="timeline-body"><h3>Demo Arena</h3><p>כל צוות מציג: הבעיה, מה נבנה, מה נחסך ומה הצעד הבא.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section packages" id="packages">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow blue">שתי רמות ליווי</div>
+      <h2>אותו האקתון. עומק אחר.</h2>
+      <p>שתי החבילות כוללות יום Hackathon מלא בן 5 שעות במשרדי Wolt. ההבדל הוא בכמות המנטורים, מעטפת האירוח ועומק הליווי שאחרי.</p>
+    </div>
+    <div class="package-grid">
+      <article class="package core-wolt">
+        <div class="package-top">
+          <div class="package-kicker">Core</div>
+          <h3>BUILD DAY</h3>
+          <div class="price"><strong>₪35,000</strong><span>+ מע״מ</span></div>
+        </div>
+        <ul class="features">
+          <li>האקתון AI מעשי בן 5 שעות</li>
+          <li>4 מנטורים מקצועיים מטעם nCode</li>
+          <li>עבודה בקבוצות על Use Cases של Wolt</li>
+          <li>הכנה והתאמת מתווה לפני האירוע</li>
+          <li>חודש אחד של ליווי המשך</li>
+          <li>מתקיים במשרדי Wolt</li>
+        </ul>
+        <div class="package-note">החבילה אינה כוללת כיבוד ומזון.</div>
+        <a class="package-cta" href="#next">בחירת מסלול Core</a>
+      </article>
+
+      <article class="package premium ncode-premium">
+        <div class="badge">המסלול המומלץ</div>
+        <div class="package-top">
+          <div class="package-kicker">Premium</div>
+          <h3>FULL IMPACT</h3>
+          <div class="price"><strong>₪53,000</strong><span>+ מע״מ</span></div>
+        </div>
+        <ul class="features">
+          <li>האקתון AI מעשי בן 5 שעות</li>
+          <li>10 מנטורים מקצועיים מטעם nCode</li>
+          <li>יחס ליווי גבוה יותר לכל צוות</li>
+          <li>הכנה והתאמת מתווה לפני האירוע</li>
+          <li>3 חודשי ליווי להטמעה והמשך פיתוח</li>
+          <li>כיבוד ומזון למשתתפים במהלך האירוע</li>
+          <li>מתקיים במשרדי Wolt</li>
+        </ul>
+        <div class="package-note">מתאים כאשר רוצים לייצר יותר תוצרים, יותר תמיכה ופחות נפילות בין ההאקתון להטמעה.</div>
+        <a class="package-cta" href="#next">בחירת מסלול Premium</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section brand-wolt">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">כלול בשתי החבילות</div>
+      <h2>המעטפת שמאפשרת לצוות לבנות</h2>
+    </div>
+    <div class="included-grid">
+      <article class="included-card"><div class="included-icon">01</div><div><h3>פגישת הכנה</h3><p>יישור קו על מטרות, קהלי יעד, אתגרים, מגבלות IT וחלוקת הצוותים.</p></div></article>
+      <article class="included-card"><div class="included-icon">02</div><div><h3>מתודולוגיית Build Sprint</h3><p>מסגרת ברורה לבחירת בעיה, בניית פתרון, בדיקה, תיעוד ודמו.</p></div></article>
+      <article class="included-card"><div class="included-icon">03</div><div><h3>מנטורים Hands-on</h3><p>ליווי ליד המחשב — לא ייעוץ מרחוק ולא הרצאה מהבמה.</p></div></article>
+      <article class="included-card"><div class="included-icon">04</div><div><h3>סיכום ותוכנית המשך</h3><p>ריכוז התוצרים, בעלי האחריות והצעדים הנדרשים להמשך הטמעה.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="section terms brand-ncode">
+  <div class="wrap terms-grid">
+    <div>
+      <div class="eyebrow blue">הערות ותנאים</div>
+      <h2 style="font-size:44px;line-height:1.05;margin:18px 0 28px">מה חשוב לדעת</h2>
+      <ol class="terms-list">
+        <li>המחירים המוצגים אינם כוללים מע״מ.</li>
+        <li>האירוע יתקיים במשרדי Wolt במועד שייקבע במשותף.</li>
+        <li>Wolt תעמיד חלל עבודה מתאים, חיבור אינטרנט, מסכים ונקודות חשמל.</li>
+        <li>כמות המשתתפים, חלוקת הצוותים ו-Use Cases סופיים יוגדרו בפגישת ההכנה.</li>
+        <li>שימוש בכלי צד שלישי או ברישיונות בתשלום, אם יידרשו, אינו כלול אלא אם נכתב אחרת.</li>
+        <li>ההצעה תקפה ל-30 יום ממועד שליחתה.</li>
+      </ol>
+    </div>
+    <aside class="signature">
+      <img src="assets/ncode-logo.png" alt="nCode">
+      <h3>nCode — בונים יכולת, לא תלות.</h3>
+      <p>אנחנו עוזרים לארגונים להפוך AI ממשהו שמדברים עליו לדרך שבה העבודה באמת מתבצעת.</p>
+      <a href="mailto:ben@benla.co.il">ben@benla.co.il</a>
+    </aside>
+  </div>
+</section>
+
+<section class="final-cta" id="next">
+  <div class="wrap final-in">
+    <div><h2>FROM WOLT WORKFLOW<br>TO WORKING AI.</h2><p>בוחרים מסלול, סוגרים מועד ומתחילים לאסוף את האתגרים מהצוותים.</p></div>
+    <a class="final-button" href="mailto:ben@benla.co.il?subject=Wolt%20AI%20Hackathon">מתקדמים עם ההאקתון</a>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap footer-in"><span><strong>nCode × Wolt</strong> · הצעה חסויה</span><span>אוגוסט 2026 · From idea to impact.</span></div></footer>
+</body>
+</html>
