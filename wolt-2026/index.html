@@ -95,6 +95,7 @@ button{font:inherit}
 
 .packages{background:linear-gradient(90deg,var(--paper) 0 50%,var(--paper) 50% 100%)}
 .package-grid{display:grid;grid-template-columns:1fr 1.08fr;gap:24px;align-items:stretch}
+.package-grid.single{grid-template-columns:minmax(0,760px);justify-content:center}
 .package{background:var(--paper-2);border:1px solid var(--line);padding:38px;position:relative;display:flex;flex-direction:column}
 .package.premium{background:var(--ink);color:#fff;border-color:var(--ink);box-shadow:var(--shadow);transform:translateY(-12px);overflow:hidden}
 .package.premium::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:var(--coral);filter:blur(100px);opacity:.20;left:-150px;top:-140px}
@@ -267,7 +268,7 @@ h1,h2,h3,.hero h1,.package h3,.manifesto-quote,.final-cta h2{font-family:Heebo,A
 <header class="topbar no-print">
   <div class="wrap topbar-in">
     <div class="brand-lockup"><img src="assets/ncode-logo.png" alt="nCode"><span class="cross">×</span><span class="wolt-word">Wolt</span></div>
-    <div class="nav-actions"><a href="#packages">החבילות</a><a href="wolt-ai-hackathon-proposal.pdf" download>הורדת PDF</a><a class="primary" href="https://wa.me/972523459797" target="_blank" rel="noopener">מתקדמים</a></div>
+    <div class="nav-actions"><a href="#packages">החבילה</a><a href="wolt-ai-hackathon-proposal.pdf" download>הורדת PDF</a><a class="primary" href="https://wa.me/972523459797" target="_blank" rel="noopener">מתקדמים</a></div>
   </div>
 </header>
 
@@ -279,18 +280,18 @@ h1,h2,h3,.hero h1,.package h3,.manifesto-quote,.final-cta h2{font-family:Heebo,A
       <div>
         <div class="eyebrow blue">הצעה ייעודית ל-Wolt · אוגוסט 2026</div>
         <h1>AI <span>HACKATHON</span></h1>
-        <p class="hero-copy"><strong>האקתון עבודה לכ־40 משתתפים.</strong><br>במשך 3 או 5 שעות, בהתאם למסלול, צוותי Wolt בוחרים תהליך מהעבודה שלהם, בונים לו גרסה ראשונה בעזרת AI ומציגים אותה בסוף האירוע.</p>
+        <p class="hero-copy"><strong>האקתון עבודה לעד 30 משתתפים.</strong><br>במשך 5 שעות צוותי Wolt בוחרים תהליך מהעבודה שלהם, בונים לו גרסה ראשונה בעזרת AI ומציגים אותה בסוף האירוע.</p>
       </div>
       <aside class="hero-card">
         <div class="label">מה עושים במהלך היום</div>
         <div class="big">מגדירים. בונים.</div>
         <div class="label">כל צוות מסיים עם תוצר שאפשר לבדוק ולהמשיך לפתח.</div>
-        <div class="sub">במשרדי Wolt · האקתון מעשי · 3 או 5 שעות</div>
+        <div class="sub">במשרדי Wolt · האקתון מעשי · 5 שעות</div>
       </aside>
     </div>
     <div class="hero-bottom">
-      <div class="hero-stat"><small>משתתפים</small><strong>כ־40 עובדי Wolt</strong></div>
-      <div class="hero-stat"><small>הליווי</small><strong>4 או 8 מנטורים של nCode</strong></div>
+      <div class="hero-stat"><small>משתתפים</small><strong>עד 30 עובדי Wolt</strong></div>
+      <div class="hero-stat"><small>הליווי</small><strong>6 מנטורים של nCode</strong></div>
       <div class="hero-stat"><small>מה נשאר</small><strong>תוצר, תיעוד וצעדי המשך</strong></div>
     </div>
   </div>
@@ -318,7 +319,7 @@ h1,h2,h3,.hero h1,.package h3,.manifesto-quote,.final-cta h2{font-family:Heebo,A
     <div class="outcome-grid">
       <article class="outcome"><div class="outcome-num">01</div><h3>גרסה ראשונה לבדיקה</h3><p>כלי או תהליך אוטומטי ראשוני, המבוסס על משימה שנבחרה בתחילת היום.</p></article>
       <article class="outcome"><div class="outcome-num">02</div><h3>תיעוד קצר וברור</h3><p>מה מזינים, מה המערכת מבצעת, מה מתקבל ומי אחראי להמשך.</p></article>
-      <article class="outcome"><div class="outcome-num">03</div><h3>רשימת צעדי המשך</h3><p>מה צריך לבדוק, לשפר או לאשר אחרי האירוע, בהתאם למסלול שנבחר.</p></article>
+      <article class="outcome"><div class="outcome-num">03</div><h3>רשימת צעדי המשך</h3><p>מה צריך לבדוק, לשפר או לאשר אחרי האירוע, יחד עם צעדי המשך ברורים.</p></article>
     </div>
   </div>
 </section>
@@ -326,9 +327,9 @@ h1,h2,h3,.hero h1,.package h3,.manifesto-quote,.final-cta h2{font-family:Heebo,A
 <section class="section brand-ncode">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">Premium · חמש שעות מקצה לקצה</div>
-      <h2>כך נראה מסלול Premium</h2>
-      <p>הלו״ז המלא מותאם לכ־40 משתתפים. במסלול Core עוברים את אותה מתודולוגיה במתכונת ממוקדת של 3 שעות.</p>
+      <div class="eyebrow">חמש שעות מקצה לקצה</div>
+      <h2>כך נראה ההאקתון</h2>
+      <p>הלו״ז מותאם לעד 30 משתתפים, בחלוקה לצוותים ובליווי 6 מנטורים של nCode.</p>
     </div>
     <div class="timeline">
       <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-time">00:00</div><div class="timeline-body"><h3>פתיחה ויישור קו</h3><p>כללי המשחק, דוגמאות, חלוקה לצוותים והגדרת תוצר ברור לכל קבוצה.</p></div></div>
@@ -344,52 +345,32 @@ h1,h2,h3,.hero h1,.package h3,.manifesto-quote,.final-cta h2{font-family:Heebo,A
 <section class="section packages" id="packages">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow blue">שני מסלולים</div>
-      <h2>בוחרים בין סדנה ממוקדת לתהליך הטמעה</h2>
-      <p>Premium כולל האקתון של 5 שעות והמשך הטמעה ל־3 חודשים. Core הוא מסלול ממוקד של 3 שעות עם ליווי המשך בסיסי.</p>
+      <div class="eyebrow blue">הצעה אחת</div>
+      <h2>האקתון AI וליווי המשך</h2>
+      <p>האקתון מעשי של 5 שעות, עם אפיון מקדים וחודש ליווי לאחר האירוע.</p>
     </div>
-    <div class="package-grid">
+    <div class="package-grid single">
       <article class="package premium ncode-premium">
-        <div class="badge">המסלול המומלץ</div>
+        <div class="badge">הצעה מעודכנת</div>
         <div class="package-top">
-          <div class="package-kicker">Premium</div>
-          <h3>מסלול PREMIUM</h3>
-          <div class="price"><span class="currency">₪</span><strong>53,000</strong><span class="vat">+ מע״מ</span></div>
+          <div class="package-kicker">Wolt AI Hackathon</div>
+          <h3>חבילת WOLT</h3>
+          <div class="price"><span class="currency">₪</span><strong>20,000</strong><span class="vat">+ מע״מ</span></div>
         </div>
         <ul class="features">
-          <li>האקתון AI מעשי בן 5 שעות לכ־40 משתתפים</li>
-          <li>8 מנטורים מקצועיים מטעם nCode</li>
-          <li>פגישת אפיון מקדימה עם הנהלת Wolt לבחירת אתגרים מהארגון</li>
-          <li>3 חודשי ליווי להטמעה ולהמשך פיתוח</li>
-          <li>קבוצת וואטסאפ ייעודית לתקופת הליווי</li>
-          <li>מפגש זום אחת לשבועיים במשך 3 חודשים</li>
-          <li>ליווי להמשך פיתוח של עד 3 פתרונות מובילים מהאירוע</li>
-          <li>מסמך מסכם להנהלה עם תוצרים והמלצות להמשך</li>
-          <li>כיבוד ומזון לכ־40 משתתפים</li>
+          <li>האקתון AI מעשי בן 5 שעות לעד 30 משתתפים</li>
+          <li>6 מנטורים מקצועיים מטעם nCode</li>
+          <li>פגישת אפיון מקדימה לבחירת האתגרים וחלוקת הצוותים</li>
+          <li>חודש ליווי בקבוצת WhatsApp ייעודית</li>
+          <li>2 מפגשי Zoom לשאלות ותשובות עם המנטורים של nCode</li>
+          <li>מסמך עזר לעובדים להמשך עבודה לאחר ההאקתון</li>
           <li>מתקיים במשרדי Wolt</li>
         </ul>
-        <div class="package-note">מסלול מלא שמחבר בין האירוע להמשך הטמעה בתוך הארגון.</div>
-        <a class="package-cta" href="https://wa.me/972523459797" target="_blank" rel="noopener">בחירת מסלול Premium</a>
+        <div class="package-note">הצעה ממוקדת שמחברת בין יום העבודה להמשך למידה ויישום בתוך Wolt.</div>
+        <a class="package-cta" href="https://wa.me/972523459797" target="_blank" rel="noopener">אישור ההצעה ותיאום מועד</a>
       </article>
 
-      <article class="package core-wolt">
-        <div class="package-top">
-          <div class="package-kicker">Core</div>
-          <h3>מסלול CORE</h3>
-          <div class="price"><span class="currency">₪</span><strong>35,000</strong><span class="vat">+ מע״מ</span></div>
-        </div>
-        <ul class="features">
-          <li>סדנת AI מעשית בת 3 שעות לכ־40 משתתפים</li>
-          <li>4 מנטורים מקצועיים מטעם nCode</li>
-          <li>עבודה בקבוצות על תהליכים של Wolt</li>
-          <li>פגישת הכנה והתאמת המתווה לפני האירוע</li>
-          <li>חודש אחד של ליווי המשך</li>
-          <li>סיכום התוצרים וצעדי ההמשך</li>
-          <li>מתקיים במשרדי Wolt</li>
-        </ul>
-        <div class="package-note">מסלול ממוקד לצוות שרוצה להתנסות, לבנות תוצרים ראשונים ולצאת עם צעדים להמשך.</div>
-        <a class="package-cta" href="https://wa.me/972523459797" target="_blank" rel="noopener">בחירת מסלול Core</a>
-      </article>
+
     </div>
   </div>
 </section>
@@ -397,8 +378,8 @@ h1,h2,h3,.hero h1,.package h3,.manifesto-quote,.final-cta h2{font-family:Heebo,A
 <section class="section brand-wolt">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">כלול בשתי החבילות</div>
-      <h2>מה כלול בשני המסלולים</h2>
+      <div class="eyebrow">מה כלול</div>
+      <h2>מעטפת העבודה</h2>
     </div>
     <div class="included-grid">
       <article class="included-card"><div class="included-icon">01</div><div><h3>פגישת הכנה</h3><p>יישור קו על מטרות, קהלי יעד, אתגרים, מגבלות IT וחלוקת הצוותים.</p></div></article>
@@ -418,7 +399,8 @@ h1,h2,h3,.hero h1,.package h3,.manifesto-quote,.final-cta h2{font-family:Heebo,A
         <li>המחירים המוצגים אינם כוללים מע״מ.</li>
         <li>האירוע יתקיים במשרדי Wolt במועד שייקבע במשותף.</li>
         <li>Wolt תעמיד חלל עבודה מתאים, חיבור אינטרנט, מסכים ונקודות חשמל.</li>
-        <li>ההצעה מבוססת על כ־40 משתתפים. החלוקה לצוותים והתהליכים הסופיים יוגדרו בפגישת ההכנה.</li>
+        <li>ההצעה מבוססת על עד 30 משתתפים. החלוקה לצוותים והתהליכים הסופיים יוגדרו בפגישת האפיון.</li>
+        <li>המחיר אינו כולל כיבוד ומזון.</li>
         <li>שימוש בכלי צד שלישי או ברישיונות בתשלום, אם יידרשו, אינו כלול אלא אם נכתב אחרת.</li>
         <li>ההצעה תקפה ל-30 יום ממועד שליחתה.</li>
       </ol>
@@ -434,8 +416,8 @@ h1,h2,h3,.hero h1,.package h3,.manifesto-quote,.final-cta h2{font-family:Heebo,A
 
 <section class="final-cta" id="next">
   <div class="wrap final-in">
-    <div><h2>השלב הבא:<br>בוחרים מסלול וקובעים מועד.</h2><p>לאחר בחירת המסלול נקיים פגישת הכנה ונאסוף את התהליכים שעליהם יעבדו הצוותים.</p></div>
-    <a class="final-button" href="https://wa.me/972523459797" target="_blank" rel="noopener">בחירת מסלול ותיאום מועד</a>
+    <div><h2>השלב הבא:<br>מאשרים וקובעים מועד.</h2><p>לאחר אישור ההצעה נקיים פגישת אפיון ונאסוף את התהליכים שעליהם יעבדו הצוותים.</p></div>
+    <a class="final-button" href="https://wa.me/972523459797" target="_blank" rel="noopener">אישור ההצעה ותיאום מועד</a>
   </div>
 </section>
 </main>
